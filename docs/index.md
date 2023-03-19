@@ -2,9 +2,9 @@
 The ioka API uses API keys to authenticate requests.
 
 ```python
-import ioka
+import ioka_python
 
-ioka.api_key = "YOUR_API_KEY"
+ioka_python.api_key = "YOUR_API_KEY"
 ```
 
 ## Core Resources

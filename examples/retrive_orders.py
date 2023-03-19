@@ -1,8 +1,8 @@
-import ioka
+import ioka_python
 
-ioka.api_key = "Hello"
+ioka_python.api_key = "Hello"
 
-orders = ioka.Order().list()
+orders = ioka_python.Order().list()
 
 print(orders)
 

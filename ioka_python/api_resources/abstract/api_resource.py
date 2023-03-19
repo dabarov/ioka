@@ -2,7 +2,7 @@ from collections import namedtuple
 
 import requests
 
-import ioka
+import ioka_python
 
 
 class APIResource:
@@ -15,7 +15,7 @@ class APIResource:
     @classmethod
     def request_call(cls, method, url, **kwargs):
         return_object = error = None
-        headers = {"API-KEY": ioka.api_key}
+        headers = {"API-KEY": ioka_python.api_key}
         try:
             response = requests.request(method, url, headers=headers, **kwargs)
             response.raise_for_status()

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "ioka"
+name = "ioka_python"
 version = "0.1.0"
 description = ""
 authors = ["Aldiyar Dabarov <dabarov.aldiyar@gmail.com>"]
