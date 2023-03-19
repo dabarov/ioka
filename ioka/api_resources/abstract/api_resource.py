@@ -14,20 +14,22 @@ class APIResource:
 
     @classmethod
     def request_call(cls, method, url, **kwargs):
-        return_object = None
+        return_object = error = None
         headers = {"API-KEY": ioka.api_key}
         try:
             response = requests.request(method, url, headers=headers, **kwargs)
             response.raise_for_status()
             return_object = cls.get_ioka_object(response.json())
         except requests.exceptions.HTTPError as http_error:
-            print(f"Http Error: {http_error}")
+            error = f"Http Error: {http_error}"
         except requests.exceptions.ConnectionError as connection_error:
-            print("Error Connecting:", connection_error)
+            error = f"Error Connecting: {connection_error}"
         except requests.exceptions.Timeout as timeout_error:
-            print("Timeout Error:", timeout_error)
+            error = f"Timeout Error: {timeout_error}"
         except requests.exceptions.RequestException as request_error:
-            print("OOps: Something Else", request_error)
+            error = f"OOps: Something Else: {request_error}"
+        if error is not None:
+            raise Exception(error)
         return return_object
 
     @classmethod
