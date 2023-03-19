@@ -22,5 +22,5 @@ class Customer(APIResource):
         return cls._post(f"{ioka_python.api_host}{cls.GROUP_URL}", json_obj=kwargs)
 
     @classmethod
-    def _delete(cls, customer_id: str, **kwargs):
+    def delete(cls, customer_id: str, **kwargs):
         return cls._delete(f"{ioka_python.api_host}{cls.GROUP_URL}/{customer_id}", json_obj=kwargs)
