@@ -31,9 +31,13 @@ class APIResource:
         return return_object
 
     @classmethod
-    def get(cls, url: str, params: dict):
+    def _get(cls, url: str, params: dict):
         return cls.request_call("get", url, params=params)
 
     @classmethod
-    def post(cls, url: str, json_obj: dict):
-        return cls.request_call("get", url, json=json_obj)
+    def _post(cls, url: str, json_obj: dict):
+        return cls.request_call("post", url, json=json_obj)
+
+    @classmethod
+    def _delete(cls, url: str, json_obj: dict):
+        return cls.request_call("delete", url, json=json_obj)
